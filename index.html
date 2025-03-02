@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> </title>
+    <script src="https://static.elfsight.com/platform/platform.js" async></script>
+    <style>
+        body {
+            font-family: Bebas Neue, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #134;
+            background: 
+                url('IMG_7308.PNG') no-repeat center top/100%,
+                url('IMG_7308.PNG') no-repeat center center/50%,
+                url('IMG_7308.PNG') no-repeat center bottom/50%;
+            background-attachment: fixed;
+        }
+
+        nav {
+            background: #000;
+            text-align: center;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: #FFD700;
+            margin: 0 1rem;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 1rem;
+            gap:  1rem; /* Reduce space between elements */
+        }
+
+        .welcome, .offerings {
+            width: 30%;
+             padding: 2rem; /* Reduce padding to bring elements closer */
+            background: rgba(0, 1, 0, 0.7);
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            opacity: 20;
+            transform:translateY(10px); /* Reduce translate distance */
+            transition: all 0.8s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 0;
+            transform: translateY(0);
+        }
+
+        .box h1, .box h2 {
+            margin-bottom: 1rem;
+        }
+
+        .box ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .box ul li {
+            margin: 0.5rem 0;
+        }
+
+        .try-now {
+            text-align: center;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: #FFD700;
+            color: #000;
+            border-radius: 10px;
+            width: 100%;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+
+        .try-now h2 {
+            margin-bottom: 1rem;
+        }
+
+        .try-now a {
+            background: #000;
+            color: #FFD700;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .try-now a:hover {
+            background: #333;
+            color: #FFD700;
+            transform: scale(1.05);
+        }
+
+        .try-now.visible, .welcome.visible, .offerings.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+       .fade-in-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: #FFD700;
+    color: #000;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative; /* Important for containing the hover box */
+    margin: 0 1rem;
+    transition: transform 0.3s ease;
+    z-index: 1; /* Ensure buttons remain clickable */
+}
+
+.fade-in-button:hover {
+    transform: scale(1.05);
+}
+
+.hover-box {
+    display: none;
+    position: absolute;
+    top: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    border-radius: 10px;
+    width: 250px;
+    text-align: left;
+    z-index: 1000; /* Ensure boxes are in front */
+}
+
+.fade-in-button:hover .hover-box {
+    display: block; /* Show the box when hovering over the button */
+}
+
+        }
+
+        .instagram-widget {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+
+        .instagram-widget.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+.section-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: nowrap;
+
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html#welcome">Welcome</a>
+        <a href="about.html">About Me</a>
+        <a href="store.html">Try Here</a>
+        <a href="store.html">Store</a>
+        <a href="contact.html">Contact</a>
+        <a href="videos_resources_page.html">Videos & Resources</a>
+        <a href="faq.html">FAQ</a>
+    </nav>
+
+    <div class="main-container">
+    <section id="hero" style="background: url('Welcome-bg.png') center/cover no-repeat; height: 20vh; width: 50%; margin-bottom: 0;"></section>
+
+     <section id="welcome" class="welcome box fade-in">
+            <h1>Online Private Strength and Conditioning</h1>
+            <p>Your destination for strength, conditioning, and becoming the athlete you aspire to be.</p>
+            <p>Success starts where comfort ends—that’s what I believe. You’ll feel it in the training programs I create. By pushing you beyond your comfort zone, we can meet—and even surpass—your goals. Because if you’re comfortable, you’re complacent. If you’re complacent, you’re stagnant. And if you’re stagnant, you’ll always fall short of your full potential. Let’s break that cycle and unlock what you’re truly capable of.</p>
+        </section>
+<div style="text-align: center; margin: 2rem auto;">
+    <!-- Athletes Button -->
+    <div class="fade-in-button" onmouseover="document.getElementById('athlete-info').style.display='block';" onmouseout="document.getElementById('athlete-info').style.display='none';">
+        <strong>Athletes</strong>
+        <div id="athlete-info" style="display: none; position: absolute; top: 110%; left: 50%; transform: translateX(-50%); padding: 1rem; background: rgba(0, 0, 0, 0.8); color: white; border-radius: 10px; width: 250px; text-align: left;">
+            Building an athlete means we must train all aspects ; Speed,Power,Strength,Conditoning. Above all keep you healthy and available.  
+        </div>
+    </div>
+
+    <!-- Fitness Enthusiasts Button -->
+    <div class="fade-in-button" onmouseover="document.getElementById('fitness-info').style.display='block';" onmouseout="document.getElementById('fitness-info').style.display='none';">
+        <strong>Fitness Enthusiasts</strong>
+        <div id="fitness-info" style="display: none; position: absolute; top: 110%; left: 50%; transform: translateX(-50%); padding: 1rem; background: rgba(0, 0, 0, 0.8); color: white; border-radius: 10px; width: 250px; text-align: left;">
+           Programs custom made for what you want, lose weight, gain muscle, improve confidence. At the gym or at home your covered no matter what. 
+        </div>
+    </div>
+
+    <!-- Everyday Goals Button -->
+    <div class="fade-in-button" onmouseover="document.getElementById('everyday-info').style.display='block';" onmouseout="document.getElementById('everyday-info').style.display='none';">
+        <strong>Everyday Goals</strong>
+        <div id="everyday-info" style="display: none; position: absolute; top: 110%; left: 50%; transform: translateX(-50%); padding: 1rem; background: rgba(0, 0, 0, 0.8); color: white; border-radius: 10px; width: 250px; text-align: left;">
+            Looking to feel better, move better, or improve your overall fitness? I create sustainable programs for real-world results.
+        </div>
+    </div>
+</div>
+
+<section id="try-it-now" class="try-now fade-in">
+    <h2>Free Warm Up</h2>
+    <p></p>
+    <a href="https://forms.gle/zSmb15rDy7MTeJ6w9" target="_blank">Download</a>
+</section>
+<div class ="section-container">
+        <section id="instagram" class="instagram-widget fade-in">
+            <h2 style="color: #000; font-size: 1.5rem;">Follow Me on Instagram</h2>
+            <script src="https://static.elfsight.com/platform/platform.js" async></script>
+            <div class="elfsight-app-79f792d0-df26-4d18-a556-e90bb2a98bf9" data-elfsight-app-lazy></div>
+        </section>
+   <section id="request-consultation" class=".request-consultation {
+    opacity: 1 !important; /* Forces visibility */
+    transition: none; /* Disables animation */
+}
+" style="text-align: center; margin: 2rem auto; padding: 2rem; background: #222; color: white; border-radius: 10px; width: 50%;">
+            <h2 style="color: #FFD700;">Request a Consultation</h2>
+            <p>Want a custom plan tailored to your goals? Request a consultation, and let’s build the perfect program for you!</p>
+            <div class="elfsight-app-2d74f16d-ecf6-4692-8ebc-ca7f45659e83" data-elfsight-app-lazy></div>
+        </section>
+   </div>
+<script>
+    // Apply fade-in effect when scrolling into view
+    const faders = document.querySelectorAll('.fade-in');
+
+    const appearOptions = {
+        threshold: 0.3,
+    };
+
+    const appearOnScroll = new IntersectionObserver(function (entries, appearOnScroll) {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) {
+                return;
+            } else {
+                entry.target.classList.add('visible');
+                appearOnScroll.unobserve(entry.target);
+            }
+        });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+        appearOnScroll.observe(fader);
+    });
+</script>
+</body>
+</html>
+

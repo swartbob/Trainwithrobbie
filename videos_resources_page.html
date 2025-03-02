@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videos & Resources - Training with Robbie</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+            background: url('Video-bg.PNG') no-repeat center center/cover;
+    background-attachment: fixed;
+;
+        }
+
+        nav {
+            background: #000;
+            text-align: center;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: #FFD700;
+            margin: 0 1rem;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .videos-container {
+            padding: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #000;
+        }
+
+        .video-card {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            border-radius: 10px;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            width: 350px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, width 0.3s ease, height 0.3s ease;
+        }
+
+        .video-card:hover {
+            transform: scale(1.1);
+            width: 400px;
+            height: 500px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .video-card iframe {
+            width: 100%;
+            height: 200px;
+            border: none;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            transition: width 0.3s ease, height 0.3s ease;
+        }
+
+        .video-card:hover iframe {
+            width: 100%;
+            height: 250px;
+        }
+
+        .video-card h3 {
+            margin: 1rem 0;
+            color: #fff;
+        }
+
+        .video-card p {
+            padding: 0 1rem 1rem;
+            color: #fff;
+        }
+
+        .add-more-message {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 1.2rem;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html#welcome">Welcome</a>
+        <a href="about.html#about">About Me</a>
+        <a href="store.html#cta">Try Here</a>
+        <a href="store.html">Store</a>
+        <a href="contact.html">Contact</a>
+        <a href="videos_resources_page.html">Videos & Resources</a>
+        <a href="faq.html">FAQ</a>
+    </nav>
+
+    <section class="videos-container">
+        <h1>Videos & Resources</h1>
+
+        <div class="video-card">
+            <iframe src="https://www.youtube.com/embed/h3_F47t7tw4" allowfullscreen></iframe>
+            <h3>Power Clean Tutorial</h3>
+            <p>Master the power clean with this detailed tutorial, focusing on explosive power and proper technique for athletic performance.</p>
+        </div>
+
+        <div class="video-card">
+            <iframe src="https://www.youtube.com/embed/wQf_BatCxig" allowfullscreen></iframe>
+            <h3>Back Squat Tutorial</h3>
+            <p>Learn the proper form and key tips for performing the back squat, a fundamental strength exercise for building power and muscle.</p>
+        </div>
+
+        <div class="video-card">
+            <iframe src="https://www.youtube.com/embed/1nSGsVh-r0I" allowfullscreen></iframe>
+            <h3>Bench Press Tutorial</h3>
+            <p>A comprehensive guide to mastering the bench press, helping you build upper body strength and improve pressing power.</p>
+        </div>
+    </section>
+
+    <p class="add-more-message">More videos coming soon! Stay tuned for updates to enhance your training journey.</p>
+
+</body>
+</html>
