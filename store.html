@@ -11,7 +11,7 @@
     padding: 0;
     line-height: 1.6;
     color: #333;
-    background: url('Store-bg.png') no-repeat center center/cover;
+    background: url('Store-bg.PNG') no-repeat center center/cover;
     background-attachment: fixed;
 }
 
@@ -192,6 +192,24 @@
             color: #FFD700;
             border-color: #000;
         }
+
+        .paypal-button {
+            background: #FFD700;
+            color: #000;
+            padding: 0.5rem 1rem;
+            border:  2px solid #FFD700;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        .paypal-button:hover {
+            background: #333;
+            color: #FFD700;
+        }
     </style>
 </head>
 <body>
@@ -208,7 +226,7 @@
         <h1>Our Products</h1>
         <div class="store">
             <div class="product">
-                <img src="Logo.png" alt="Online Coaching">
+                <img src="logo.png" alt="Online Coaching">
                 <h3>Online Coaching</h3>
                 <p>Personalized coaching with tailored plans and regular feedback.</p>
                 <div class="cta">
@@ -221,7 +239,15 @@
                 <h3>Hypertrophy Program</h3>
                 <p>4-week muscle-building program with progressive overload.</p>
                 <div class="cta">
-                    <a href="contact.html" class="contact-button">Contact to Get Started</a>
+                   <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+                    <input type="hidden" name="cmd" value="_xclick">
+                    <input type="hidden" name="business" value="rbswart42@gmail.com">
+                    <input type="hidden" name="item_name" value="Hypertrophy Program">
+                    <input type="hidden" name="amount" value="40.00">
+                    <input type="hidden" name="currency_code" value="USD">
+                    <input type="hidden" name="return" value="https://www.paypal.com/ncp/payment/4E6KS44YABD84">
+                    <input type="submit" class="paypal-button" value="Buy Now with PayPal">
+                </form>
                 </div>
             </div>
 
@@ -230,7 +256,15 @@
                 <h3>1-Week Sample Program</h3>
                 <p>Preview our training philosophy with a full-body sample plan.</p>
                 <div class="cta">
-                    <a href="contact.html" class="contact-button">Contact to Get Started</a>
+                   <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+                    <input type="hidden" name="cmd" value="_xclick">
+                    <input type="hidden" name="business" value="rbswart42@gmail.com">
+                    <input type="hidden" name="item_name" value="1-Week Sample Program">
+                    <input type="hidden" name="amount" value="10.00">
+                    <input type="hidden" name="currency_code" value="USD">
+                    <input type="hidden" name="return" value="https://www.paypal.com/ncp/payment/YPTCHFBPYJ5RG">
+                    <input type="submit" class="paypal-button" value="Buy Now with PayPal">
+                </form>
                 </div>
             </div>
 
@@ -239,16 +273,24 @@
                 <h3>12-Week Better Athlete Program</h3>
                 <p>Designed for peak performance in strength and speed.</p>
                 <div class="cta">
-                    <a href="contact.html" class="contact-button">Contact to Get Started</a>
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+                    <input type="hidden" name="cmd" value="_xclick">
+                    <input type="hidden" name="business" value="rbswart42@gmail.com">
+                    <input type="hidden" name="item_name" value="12-Week Better Athlete Program">
+                    <input type="hidden" name="amount" value="60.00">
+                    <input type="hidden" name="currency_code" value="USD">
+                    <input type="hidden" name="return" value="https://www.paypal.com/ncp/payment/DKJGWVMNYNKXW">
+                    <input type="submit" class="paypal-button" value="Buy Now with PayPal">
+                </form>
                 </div>
             </div>
 
             <div class="product">
-                <img src="Logo.png" alt="Custom Programs">
+                <img src="logo.png" alt="Custom Programs">
                 <h3>Custom Programs</h3>
                 <p>Tailored programs for any fitness goal or athletic need.</p>
                 <div class="cta">
-                    <a href="contact.html" class="contact-button">Contact to Get Started</a>c 
+                    <a href="contact.html" class="contact-button">Contact to Get Started</a> 
 
 
                 </div>
