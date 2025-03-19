@@ -209,7 +209,20 @@
         .paypal-button:hover {
             background: #333;
             color: #FFD700;
-        }
+        } @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .store-container {
+                padding: 1rem;
+            }
+
+            .store {
+                flex-direction: column;
+                align-items: center;
+            }
     </style>
 </head>
 <body>
