@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store - Training with Robbie</title>
+    <style>
+       body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #333;
+    background: url('Store-bg.PNG') no-repeat center center/cover;
+    background-attachment: fixed;
+}
+
+
+        nav {
+            background: #000;
+            text-align: center;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: #FFD700;
+            margin: 0 1rem;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .store-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+            padding: 2rem;
+                       color: #000;
+            border-radius: 10px;
+        }
+
+        .store-container h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .store {
+            display: flex;
+            gap: 2rem;
+            overflow: hidden;
+            width: 900px;
+            margin: 0 auto;
+            transition: transform 0.3s ease;
+        }
+
+        .product {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 1rem;
+            flex: 0 0 300px;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .product:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .product img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .product h3 {
+            margin: 1rem 0 0.5rem;
+            color: #000;
+        }
+
+        .product p {
+            margin: 0.5rem 0;
+            color: #555;
+        }
+
+        .product .price {
+            font-weight: bold;
+            color: #000;
+        }
+
+        .product .cta {
+            margin-top: 1rem;
+        }
+
+        .store-navigation button {
+            background: #FFD700;
+            color: #000;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .store-navigation button:hover {
+            background: #333;
+            color: #FFD700;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .modal {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 500px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .modal img {
+            max-width: 100%;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+
+        .modal h3 {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .modal p {
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+
+        .modal button {
+            background: #FFD700;
+            color: #000;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .modal button:hover {
+            background: #333;
+            color: #FFD700;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .contact-button {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: #FFD700;
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+            border: 2px solid #FFD700;
+            border-radius: 10px;
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+
+        .contact-button:hover {
+            background: #000;
+            color: #FFD700;
+            border-color: #000;
+        }
+
+        .paypal-button {
+            background: #FFD700;
+            color: #000;
+            padding: 0.5rem 1rem;
+            border:  2px solid #FFD700;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        .paypal-button:hover {
+            background: #333;
+            color: #FFD700;
+        }
+         @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .store-container {
+                padding: 1rem;
+            }
+
+            .store {
+                flex-direction: column;
+                align-items: center;
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html#welcome">Welcome</a>
+        <a href="about.html">About Me</a>
+        <a href="store.html">Store</a>
+        <a href="contact.html">Contact</a>
+        <a href="videos_resources_page.html">Videos & Resources</a>
+        <a href="faq.html">FAQ</a>
+    </nav>
+
+    <section class="store-container">
+        <h1>Our Products</h1>
+        <div class="store">
+            <div class="product">
+                <img src="logo.png" alt="Online Coaching">
+                <h3>Online Coaching</h3>
+                <p>Personalized coaching with tailored plans and regular feedback.</p>
+                <div class="cta">
+                    <a href="contact.html" class="contact-button">Contact to Get Started</a>
+                </div>
+            </div>
+
+            <div class="product">
+                <img src="TWR.png" alt="Hypertrophy Program">
+                <h3>Hypertrophy Program</h3>
+                <p>4-week muscle-building program with progressive overload.</p>
+                <div class="cta">
+                   <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+                    <input type="hidden" name="cmd" value="_xclick">
+                    <input type="hidden" name="business" value="rbswart42@gmail.com">
+                    <input type="hidden" name="item_name" value="Hypertrophy Program">
+                    <input type="hidden" name="amount" value="40.00">
+                    <input type="hidden" name="currency_code" value="USD">
+                    <input type="hidden" name="return" value="https://www.paypal.com/ncp/payment/4E6KS44YABD84">
+                    <input type="submit" class="paypal-button" value="Buy Now with PayPal">
+                </form>
+                </div>
+            </div>
+
+            <div class="product">
+                <img src="TWR (2).png" alt="1-Week Sample Program">
+                <h3>1-Week Sample Program</h3>
+                <p>Preview our training philosophy with a full-body sample plan.</p>
+                <div class="cta">
+                   <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+                    <input type="hidden" name="cmd" value="_xclick">
+                    <input type="hidden" name="business" value="rbswart42@gmail.com">
+                    <input type="hidden" name="item_name" value="1-Week Sample Program">
+                    <input type="hidden" name="amount" value="10.00">
+                    <input type="hidden" name="currency_code" value="USD">
+                    <input type="hidden" name="return" value="https://www.paypal.com/ncp/payment/YPTCHFBPYJ5RG">
+                    <input type="submit" class="paypal-button" value="Buy Now with PayPal">
+                </form>
+                </div>
+            </div>
+
+            <div class="product">
+                <img src="Screenshot 2024-09-10 171639.png" alt="12-Week Better Athlete Program">
+                <h3>12-Week Better Athlete Program</h3>
+                <p>Designed for peak performance in strength and speed.</p>
+                <div class="cta">
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+                    <input type="hidden" name="cmd" value="_xclick">
+                    <input type="hidden" name="business" value="rbswart42@gmail.com">
+                    <input type="hidden" name="item_name" value="12-Week Better Athlete Program">
+                    <input type="hidden" name="amount" value="60.00">
+                    <input type="hidden" name="currency_code" value="USD">
+                    <input type="hidden" name="return" value="https://www.paypal.com/ncp/payment/DKJGWVMNYNKXW">
+                    <input type="submit" class="paypal-button" value="Buy Now with PayPal">
+                </form>
+                </div>
+            </div>
+
+            <div class="product">
+                <img src="logo.png" alt="Custom Programs">
+                <h3>Custom Programs</h3>
+                <p>Tailored programs for any fitness goal or athletic need.</p>
+                <div class="cta">
+                    <a href="contact.html" class="contact-button">Contact to Get Started</a> 
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="store-navigation">
+            <button onclick="scrollRight()">Next &#8594;</button>
+        </div>
+    </section>
+<!-- Gear Section (New Independent Section) -->
+<section class="store-container">
+    <h2 style="text-align: center; padding-top: 2rem;">Gear</h2>
+    <div style="position: relative; overflow: hidden; width: 640px; margin: auto;">
+        <button onclick="scrollGearLeft()" style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); background: #FFD700; border: none; padding: 1rem; cursor: pointer; font-weight: bold; z-index: 10;">&#8592;</button>
+        <div id="gear-carousel" class="gear-carousel" style="display: flex; gap: 2rem; padding: 2rem; scroll-behavior: smooth; transition: transform 0.3s ease;">
+            <!-- Product 1: Unisex Fleece Sweatpants -->
+            <div class="product" style="min-width: 300px; max-width: 300px;">
+                <img src="Fleece Pants.jpg" alt="Unisex Fleece Sweatpants" style="width: 100%;">
+                <h3>Unisex Fleece Sweatpants</h3>
+                <p>Comfortable fleece sweatpants designed for performance and recovery.</p>
+                <div class="cta">
+                    <a href="https://twr.printful.me/product/unisex-fleece-sweatpants" target="_blank" class="contact-button">Buy Now</a>
+                </div>
+            </div>
+
+            <!-- Product 2: Short-Sleeve T-Shirt -->
+            <div class="product" style="min-width: 300px; max-width: 300px;">
+                <img src="T shirt.jpg" alt="Short Sleeve T-Shirt" style="width: 100%;">
+                <h3>Short-Sleeve T-Shirt</h3>
+                <p>Lightweight and breathable, perfect for gym or casual wear.</p>
+                <div class="cta">
+                    <a href="https://twr.printful.me/product/short-sleeve-t-shirt" target="_blank" class="contact-button">Buy Now</a>
+                </div>
+            </div>
+
+            <!-- Product 3: Unisex Hoodie -->
+            <div class="product" style="min-width: 300px; max-width: 300px;">
+                <img src="Sweatshirt.jpg" alt="Unisex Hoodie" style="width: 100%;">
+                <h3>Unisex Hoodie</h3>
+                <p>Stay warm and stylish with this premium hoodie for training and everyday wear.</p>
+                <div class="cta">
+                    <a href="https://twr.printful.me/product/unisex-hoodie" target="_blank" class="contact-button">Buy Now</a>
+                </div>
+            </div>
+
+            <!-- Product 4: Train with Robbie Gear -->
+            <div class="product" style="min-width: 300px; max-width: 300px;">
+                <img src="Logo.png" alt="Train with Robbie Gear" style="width: 100%;">
+                <h3>Train with Robbie Gear</h3>
+                <p>Official gear to support your fitness journey with Robbie.</p>
+                <div class="cta">
+                    <a href="https://twr.printful.me/product/train-with-robbie-gear" target="_blank" class="contact-button">Buy Now</a>
+                </div>
+            </div>
+        </div>
+        <button onclick="scrollGearRight()" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); background: #FFD700; border: none; padding: 1rem; cursor: pointer; font-weight: bold; z-index: 10;">&#8594;</button>
+    </div>
+</section>
+
+<script>
+    const gearCarousel = document.getElementById('gear-carousel');
+    let gearScrollPosition = 0;
+    const gearProductWidth = 340; // Adjusted for padding and full product width
+
+    function scrollGearLeft() {
+        gearScrollPosition -= gearProductWidth;
+        if (gearScrollPosition < 0) {
+            gearScrollPosition = (gearCarousel.scrollWidth - gearCarousel.clientWidth); // Wrap to end
+        }
+        gearCarousel.style.transform = `translateX(-${gearScrollPosition}px)`;
+    }
+
+    function scrollGearRight() {
+        gearScrollPosition += gearProductWidth;
+        if (gearScrollPosition >= gearCarousel.scrollWidth) {
+            gearScrollPosition = 0; // Wrap to beginning
+        }
+        gearCarousel.style.transform = `translateX(-${gearScrollPosition}px)`;
+    }
+</script>
+
+
+    <script>
+    const store = document.querySelector('.store');
+    const products = Array.from(store.children);
+    const productWidth = 300; // Each product is 300px wide
+    const visibleProducts = 3; // Number of visible products at a time
+    let currentIndex = 0;
+
+    const productDetails = {
+        "Online Coaching": "Our online coaching program offers personalized training and nutrition guidance tailored to your fitness level. With regular video feedback, weekly check-ins, and continuous updates to your program, you'll stay on track and achieve results efficiently.",
+        "Hypertrophy Program": "This 4-week hypertrophy program is designed for intermediate lifters aiming to gain size and strength. Featuring a combination of high-volume, progressive overload, and accessory movements, it's perfect for building muscle mass.",
+        "1-Week Sample Program": "Get a glimpse of our training style with this 1-week sample program. It includes a combination of compound lifts, accessory exercises, and conditioning workouts to give you a full-body training experience.",
+        "12-Week Better Athlete Program": "Our 12-week program is built for athletes seeking peak performance. We focus on explosive strength, power development, speed, and mobility. Includes personalized setup based on your goals.",
+        "Custom Programs": "Our custom programs are designed around your specific needs, whether you want to improve strength, build endurance, or achieve a sport-specific goal. Choose between 4, 6, or 8-week plans with tailored progressions."
+    };
+
+    function scrollRight() {
+        currentIndex += visibleProducts;
+        if (currentIndex >= products.length) {
+            currentIndex = 0; // Reset to the beginning when at the end
+        }
+        updateScroll();
+    }
+
+    function updateScroll() {
+        const offset = currentIndex * productWidth;
+        store.scrollTo({
+            left: offset,
+            behavior: 'smooth'
+        });
+    }
+
+    function openModal(product) {
+        const title = product.querySelector('h3').innerText;
+        document.getElementById('modal-img').src = product.querySelector('img').src;
+        document.getElementById('modal-title').innerText = title;
+        document.getElementById('modal-description').innerText = productDetails[title] || 'More details coming soon!';
+        document.getElementById('product-modal').style.display = 'flex';
+    }
+
+    function closeModal() {
+        document.getElementById('product-modal').style.display = 'none';
+    }
+
+    // Attach click event to all product cards
+    products.forEach(product => {
+        product.addEventListener('click', () => openModal(product));
+    });
+    </script>
+</body>
+</html>
